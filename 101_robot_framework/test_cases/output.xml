@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.5 on win32)" generated="20210915 20:54:16.019" rpa="false" schemaversion="2">
+<suite id="s1" name="My Test2" source="C:\dev_cave\python\projects\robot_framework\materials\101_robot_framework\test_cases\my_test2.robot">
+<test id="s1-t1" name="Login Attempt Test">
+<for flavor="IN">
+<var>${Login}</var>
+<value>@{LoginList}</value>
+<iter>
+<var name="${Login}">standard_user</var>
+<kw name="Try To Login">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${Location}</var>
+<doc>Returns the current browser window URL.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.178" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.178" endtime="20210915 20:54:16.178"/>
+</kw>
+<msg timestamp="20210915 20:54:16.180" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.178" endtime="20210915 20:54:16.180"/>
+</kw>
+<kw name="Login Attempt On Website" library="my_resources">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${NewLocation}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Location}' == '${NewLocation}'">
+<kw name="Log" library="BuiltIn">
+<arg>${Login} caused error</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<kw name="Fail" library="BuiltIn">
+<arg>Login with username ${Login} failed!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</branch>
+<status status="NOT RUN" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.180"/>
+</if>
+<kw name="Close Browsr Window" library="my_resources" type="TEARDOWN">
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${Title}</var>
+<doc>Returns the title of the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.181" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.181" endtime="20210915 20:54:16.181"/>
+</kw>
+<msg timestamp="20210915 20:54:16.181" level="INFO">${Title} = None</msg>
+<msg timestamp="20210915 20:54:16.181" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.181" endtime="20210915 20:54:16.181"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210915 20:54:16.181" level="INFO">None</msg>
+<status status="PASS" starttime="20210915 20:54:16.181" endtime="20210915 20:54:16.181"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210915 20:54:16.181" endtime="20210915 20:54:16.182"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.180" endtime="20210915 20:54:16.182">No browser is open.</status>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.178" endtime="20210915 20:54:16.182"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.178" endtime="20210915 20:54:16.182"/>
+</iter>
+<iter>
+<var name="${Login}">locked_out_user</var>
+<kw name="Try To Login">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${Location}</var>
+<doc>Returns the current browser window URL.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.182" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.182" endtime="20210915 20:54:16.182"/>
+</kw>
+<msg timestamp="20210915 20:54:16.183" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.182" endtime="20210915 20:54:16.183"/>
+</kw>
+<kw name="Login Attempt On Website" library="my_resources">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${NewLocation}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Location}' == '${NewLocation}'">
+<kw name="Log" library="BuiltIn">
+<arg>${Login} caused error</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<kw name="Fail" library="BuiltIn">
+<arg>Login with username ${Login} failed!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.183"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.184"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.184"/>
+</branch>
+<status status="NOT RUN" starttime="20210915 20:54:16.183" endtime="20210915 20:54:16.184"/>
+</if>
+<kw name="Close Browsr Window" library="my_resources" type="TEARDOWN">
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${Title}</var>
+<doc>Returns the title of the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.184" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.184" endtime="20210915 20:54:16.184"/>
+</kw>
+<msg timestamp="20210915 20:54:16.184" level="INFO">${Title} = None</msg>
+<msg timestamp="20210915 20:54:16.184" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.184" endtime="20210915 20:54:16.184"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210915 20:54:16.184" level="INFO">None</msg>
+<status status="PASS" starttime="20210915 20:54:16.184" endtime="20210915 20:54:16.185"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210915 20:54:16.185" endtime="20210915 20:54:16.185"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.184" endtime="20210915 20:54:16.185">No browser is open.</status>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.182" endtime="20210915 20:54:16.185"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.182" endtime="20210915 20:54:16.185"/>
+</iter>
+<iter>
+<var name="${Login}">problem_user</var>
+<kw name="Try To Login">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${Location}</var>
+<doc>Returns the current browser window URL.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.185" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.185" endtime="20210915 20:54:16.185"/>
+</kw>
+<msg timestamp="20210915 20:54:16.186" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.185" endtime="20210915 20:54:16.186"/>
+</kw>
+<kw name="Login Attempt On Website" library="my_resources">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${NewLocation}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Location}' == '${NewLocation}'">
+<kw name="Log" library="BuiltIn">
+<arg>${Login} caused error</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<kw name="Fail" library="BuiltIn">
+<arg>Login with username ${Login} failed!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.186"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.187"/>
+</branch>
+<status status="NOT RUN" starttime="20210915 20:54:16.186" endtime="20210915 20:54:16.187"/>
+</if>
+<kw name="Close Browsr Window" library="my_resources" type="TEARDOWN">
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${Title}</var>
+<doc>Returns the title of the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.187" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.187" endtime="20210915 20:54:16.187"/>
+</kw>
+<msg timestamp="20210915 20:54:16.187" level="INFO">${Title} = None</msg>
+<msg timestamp="20210915 20:54:16.187" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.187" endtime="20210915 20:54:16.187"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210915 20:54:16.187" level="INFO">None</msg>
+<status status="PASS" starttime="20210915 20:54:16.187" endtime="20210915 20:54:16.187"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210915 20:54:16.188" endtime="20210915 20:54:16.188"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.187" endtime="20210915 20:54:16.188">No browser is open.</status>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.185" endtime="20210915 20:54:16.188"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.185" endtime="20210915 20:54:16.188"/>
+</iter>
+<iter>
+<var name="${Login}">performance_glitch_user</var>
+<kw name="Try To Login">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${Location}</var>
+<doc>Returns the current browser window URL.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.188" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.188" endtime="20210915 20:54:16.188"/>
+</kw>
+<msg timestamp="20210915 20:54:16.189" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.188" endtime="20210915 20:54:16.189"/>
+</kw>
+<kw name="Login Attempt On Website" library="my_resources">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.189"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${NewLocation}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.189"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Location}' == '${NewLocation}'">
+<kw name="Log" library="BuiltIn">
+<arg>${Login} caused error</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.189"/>
+</kw>
+<kw name="Fail" library="BuiltIn">
+<arg>Login with username ${Login} failed!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.189"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.189"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.190"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.190"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.190"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.190"/>
+</branch>
+<status status="NOT RUN" starttime="20210915 20:54:16.189" endtime="20210915 20:54:16.190"/>
+</if>
+<kw name="Close Browsr Window" library="my_resources" type="TEARDOWN">
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${Title}</var>
+<doc>Returns the title of the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.190" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.190"/>
+</kw>
+<msg timestamp="20210915 20:54:16.191" level="INFO">${Title} = None</msg>
+<msg timestamp="20210915 20:54:16.191" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.191"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210915 20:54:16.191" level="INFO">None</msg>
+<status status="PASS" starttime="20210915 20:54:16.191" endtime="20210915 20:54:16.191"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210915 20:54:16.191" endtime="20210915 20:54:16.191"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.190" endtime="20210915 20:54:16.191">No browser is open.</status>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.188" endtime="20210915 20:54:16.191"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.188" endtime="20210915 20:54:16.191"/>
+</iter>
+<iter>
+<var name="${Login}">roman</var>
+<kw name="Try To Login">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${Location}</var>
+<doc>Returns the current browser window URL.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.192" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.192" endtime="20210915 20:54:16.192"/>
+</kw>
+<msg timestamp="20210915 20:54:16.192" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.192" endtime="20210915 20:54:16.192"/>
+</kw>
+<kw name="Login Attempt On Website" library="my_resources">
+<arg>${Login}</arg>
+<arg>${Password}</arg>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${NewLocation}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Location}' == '${NewLocation}'">
+<kw name="Log" library="BuiltIn">
+<arg>${Login} caused error</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<kw name="Fail" library="BuiltIn">
+<arg>Login with username ${Login} failed!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>id:logout_sidebar_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</kw>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</branch>
+<status status="NOT RUN" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.193"/>
+</if>
+<kw name="Close Browsr Window" library="my_resources" type="TEARDOWN">
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${Title}</var>
+<doc>Returns the title of the current page.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210915 20:54:16.194" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.194"/>
+</kw>
+<msg timestamp="20210915 20:54:16.194" level="INFO">${Title} = None</msg>
+<msg timestamp="20210915 20:54:16.194" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.194"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20210915 20:54:16.194" level="INFO">None</msg>
+<status status="PASS" starttime="20210915 20:54:16.194" endtime="20210915 20:54:16.194"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210915 20:54:16.194" endtime="20210915 20:54:16.194"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.193" endtime="20210915 20:54:16.194">No browser is open.</status>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.192" endtime="20210915 20:54:16.195"/>
+</kw>
+<status status="FAIL" starttime="20210915 20:54:16.192" endtime="20210915 20:54:16.195"/>
+</iter>
+<status status="FAIL" starttime="20210915 20:54:16.178" endtime="20210915 20:54:16.195"/>
+</for>
+<status status="FAIL" starttime="20210915 20:54:16.177" endtime="20210915 20:54:16.195">Several failures occurred:
+
+1) No browser is open.
+
+Also keyword teardown failed:
+No browser is open.
+
+2) No browser is open.
+
+Also keyword teardown failed:
+No browser is open.
+
+3) No browser is open.
+
+Also keyword teardown failed:
+No browser is open.
+
+4) No browser is open.
+
+Also keyword teardown failed:
+No browser is open.
+
+5) No browser is open.
+
+Also keyword teardown failed:
+No browser is open.</status>
+</test>
+<doc>Test to check if onlineshop cart system is working.</doc>
+<status status="FAIL" starttime="20210915 20:54:16.020" endtime="20210915 20:54:16.196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="My Test2">My Test2</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210915 20:54:16.015" level="ERROR">Error in file 'C:\dev_cave\python\projects\robot_framework\materials\101_robot_framework\test_cases\my_test2.robot' on line 19: Non-existing setting 'Setup'.</msg>
+<msg timestamp="20210915 20:54:16.175" level="WARN">Imported library 'C:\dev_cave\python\projects\robot_framework\materials\101_robot_framework\external_keywords\my_user_kws.py' contains no keywords.</msg>
+</errors>
+</robot>
