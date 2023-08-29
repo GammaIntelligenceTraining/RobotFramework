@@ -1,0 +1,18 @@
+1693342561041	geckodriver	INFO	Listening on 127.0.0.1:50361
+1693342561045	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/1w/r52xrq5s0pgb8qnnbfmmq89w0000gn/T/rust_mozprofileoKkTeu"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693342561319	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693342561410	Marionette	INFO	Listening on port 50367
+Read port: 50367
+WebDriver BiDi listening on ws://127.0.0.1:50362
+1693342561524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:50362/devtools/browser/93d1a0ab-973b-4352-ba76-a62a97f0c1da
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.saucedemo.com."
+1693342576432	Marionette	INFO	Stopped listening on port 50367
+JavaScript warning: https://www.saucedemo.com/static/js/2.88f6e73d.chunk.js, line 2: Script terminated by timeout at:
+Ke@https://www.saucedemo.com/static/js/2.88f6e73d.chunk.js:2:235392
+
