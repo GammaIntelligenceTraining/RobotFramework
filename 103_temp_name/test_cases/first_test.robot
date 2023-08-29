@@ -14,8 +14,11 @@ ${password}  secret_sauce
 Temp test case
     Open Browser  ${url}  ${browser}
     Login to website  ${standard_user}  ${password}
+    ${cnt}  Set Variable  1
     FOR  ${item}  IN  @{LIST_ADD_BTNS}
         Click Button  id:${item}
+        # Element Text Should Be  xpath://*[@id="shopping_cart_container"]/a/span  ${cnt}
+        # ${cnt}  Set Variable  ${cnt}+1
         Sleep  2s
     END
     Close Browser
